@@ -494,3 +494,149 @@ body {
   width: 100%;
   box-sizing: border-box;
 }
+.team-section {
+  background: linear-gradient(135deg, #6f00ff, #98f0c9);
+  min-height: 100vh; /* теперь занимает весь экран по высоте */
+  width: 100vw; /* и по ширине */
+  padding: 60px 20px;
+  border-radius: 0; /* убираем скругление, если нужно */
+  color: white;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.team-content-wrapper {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 30px;
+}
+
+/* Большое фото слева */
+.team-left {
+  flex: 1;
+  min-width: 280px;
+  max-width: 350px;
+  display: flex;
+  justify-content: center;
+}
+.team-photo-big {
+  width: 100%;
+  max-width: 350px;
+  border-radius: 20px;
+  object-fit: cover;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  transition: opacity 0.3s ease;
+  height: 341px;
+}
+
+/* Справа текст и список миниатюр */
+.team-right {
+  flex: 2;
+  min-width: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  position: relative;
+}
+
+#team-details {
+  background: rgba(255 255 255 / 0.9);
+  flex: 1;
+  max-width: 800px; /* ограничиваем ширину */
+  padding: 30px; /* уменьшаем внутренние отступы */
+  color: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.team-name {
+  font-size: 2rem;
+  margin-bottom: 5px;
+  color: #1a237e;
+}
+.team-position {
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  opacity: 0.8;
+  margin-bottom: 25px;
+  color: #e64a19;
+}
+.team-message p + p {
+  margin-top: 10px;
+}
+.team-quote {
+  background: #ccff00;
+  color: #111;
+  border-radius: 15px;
+  padding: 15px 20px;
+  font-weight: bold;
+  font-size: 1.1rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  font-style: normal;
+  margin-top: 30px;
+}
+.team-quote p {
+  margin-top: 10px;
+  font-style: italic;
+}
+
+/* Список миниатюр справа */
+.team-photo-list {
+  position: absolute;
+  right: -90px;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  z-index: 10;
+}
+.team-photo-list li {
+  list-style: none;
+}
+.team-photo-list img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 3px solid white;
+  cursor: pointer;
+  object-fit: cover;
+  transition: transform 0.3s, border-color 0.3s;
+}
+.team-photo-list img.active {
+  border-color: #f0ff00;
+  transform: scale(1.15);
+  z-index: 20;
+}
+
+/* Адаптив */
+@media (max-width: 900px) {
+  .team-content-wrapper {
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+  }
+  .team-left {
+    width: 100%;
+  }
+  .team-photo-list {
+    position: static;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  .team-photo-list img {
+    width: 50px;
+    height: 50px;
+  }
+  .team-right {
+    position: static;
+    gap: 20px;
+  }
+  #team-details {
+    max-width: 100%;
+  }
+}
