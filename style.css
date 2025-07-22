@@ -496,7 +496,7 @@ body {
 }
 .team-section {
   background: linear-gradient(135deg, #6f00ff, #98f0c9);
-  min-height: 100vh; /* теперь занимает весь экран по высоте */
+  min-height: 50vh; /* теперь занимает весь экран по высоте */
   width: 100vw; /* и по ширине */
   padding: 60px 20px;
   border-radius: 0; /* убираем скругление, если нужно */
