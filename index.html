@@ -1,196 +1,257 @@
 <!DOCTYPE html>
 <html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jewish Home</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Красивая шапка</title>
-  <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;600&display=swap" rel="stylesheet" />
-</head>
-
-<body>
-  <header class="hero">
-    <div class="overlay"></div>
-    <div class="container">
-      <nav class="navbar">
-        <div class="logo">Место поддержки и вдохновения для твоей еврейской семьи</div>
-        <div class="menu-toggle" id="menu-toggle">&#9776;</div>
-        <ul class="nav-links" id="nav-links">
-          <li><a href="#">Главная</a></li>
-          <li><a href="#">О нас</a></li>
-          <li><a href="#">Контакты</a></li>
-        </ul>
-      </nav>
-      <div class="hero-content">
-        <img src="img/logo.png" alt="Логотип" class="hero-logo" />
-        <div class="buttons">
-          <a href="#more" class="btn">Узнать больше</a>
-          <a href="#register" class="btn btn-secondary">Зарегистрироваться</a>
+  <body>
+    <header class="hero">
+      <div class="overlay"></div>
+      <div class="container">
+        <nav class="navbar">
+          <div class="logo">
+            Место поддержки и вдохновения для твоей еврейской семьи
+          </div>
+          <div class="menu-toggle" id="menu-toggle">&#9776;</div>
+          <ul class="nav-links" id="nav-links">
+            <li><a href="#">Главная</a></li>
+            <li><a href="#">О нас</a></li>
+            <li><a href="#">Контакты</a></li>
+          </ul>
+        </nav>
+        <div class="hero-content">
+          <img src="img/logo.png" alt="Логотип" class="hero-logo" />
+          <div class="buttons">
+            <a href="#more" class="btn">Узнать больше</a>
+            <a href="#register" class="btn btn-secondary">Зарегистрироваться</a>
+          </div>
         </div>
       </div>
-    </div>
-  </header>
-  <section class="goal-section">
-    <div class="goal-wrapper">
-      <div class="goal-left">
-        <div class="goal-content">
-          <h2>Наша цель</h2>
-          <p>
-            Помочь каждому создать крепкую и счастливую еврейскую семью,
-            предоставляя инструменты для построения отношений как между мужем
-            и женой, так и с детьми.
-          </p>
+    </header>
+    <section class="goal-section">
+      <div class="goal-wrapper">
+        <div class="goal-left">
+          <div class="goal-content">
+            <h2>Наша цель</h2>
+            <p>
+              Помочь каждому создать крепкую и счастливую еврейскую семью,
+              предоставляя инструменты для построения отношений как между мужем
+              и женой, так и с детьми.
+            </p>
+          </div>
+        </div>
+        <div class="goal-right">
+          <img src="img/pair.jpg" alt="Семейная пара" />
         </div>
       </div>
-      <div class="goal-right">
-        <img src="img/pair.jpg" alt="Семейная пара" />
-      </div>
-    </div>
-  </section>
-  <section class="application-section" id="register">
-    <div class="application-wrapper">
-      <!-- Левая часть: Мероприятия -->
-      <div class="application-left">
-        <h2>Наши мероприятия</h2>
-        <!-- <p>Мы регулярно проводим лекции, встречи, праздники и мастер-классы для всей семьи.</p> -->
-        <div class="video-wrapper">
-          <video controls width="100%" poster="img/video-poster.png">
-            <source src="video/event1.mp4" type="video/mp4" />
-            Ваш браузер не поддерживает видео.
-          </video>
-          <video controls width="100%" poster="img/video-poster.png">
-            <source src="video/event2.mp4" type="video/mp4" />
-            Ваш браузер не поддерживает видео.
-          </video>
+    </section>
+    <section class="application-section" id="register">
+      <div class="application-wrapper">
+        <!-- Левая часть: Мероприятия -->
+        <div class="application-left">
+          <h2>Наши мероприятия</h2>
+          <!-- <p>Мы регулярно проводим лекции, встречи, праздники и мастер-классы для всей семьи.</p> -->
+          <div class="video-wrapper">
+            <video controls width="100%" poster="img/video-poster.png">
+              <source src="video/event1.mp4" type="video/mp4" />
+              Ваш браузер не поддерживает видео.
+            </video>
+            <video controls width="100%" poster="img/video-poster.png">
+              <source src="video/event2.mp4" type="video/mp4" />
+              Ваш браузер не поддерживает видео.
+            </video>
+          </div>
         </div>
 
-      </div>
-
-      <!-- Правая часть: Форма -->
-      <div class="application-right">
-        <div class="form-box">
-          <h3>Оставьте заявку</h3>
-          <form class="contact-form">
-            <input type="text" name="name" placeholder="Ваше имя" required />
-            <input type="text" name="jewishName" placeholder="Еврейское имя" required />
-            <input type="tel" name="phone" placeholder="Телефон" required />
-            <input type="email" name="email" placeholder="Ваш email" required />
-            <label for="weddingDate">Дата хупы</label>
-            <input type="date" name="weddingDate" id="weddingDate" required />
-            <textarea name="message" placeholder="Ваше сообщение" rows="4" required></textarea>
-            <button type="submit" class="btn">Отправить</button>
-          </form>
+        <!-- Правая часть: Форма -->
+        <div class="application-right">
+          <div class="form-box">
+            <h3>Оставьте заявку</h3>
+            <form class="contact-form">
+              <input type="text" name="name" placeholder="Ваше имя" required />
+              <input
+                type="text"
+                name="jewishName"
+                placeholder="Еврейское имя"
+                required
+              />
+              <input type="tel" name="phone" placeholder="Телефон" required />
+              <input
+                type="email"
+                name="email"
+                placeholder="Ваш email"
+                required
+              />
+              <label for="weddingDate">Дата хупы</label>
+              <input type="date" name="weddingDate" id="weddingDate" required />
+              <textarea
+                name="message"
+                placeholder="Ваше сообщение"
+                rows="4"
+                required
+              ></textarea>
+              <button type="submit" class="btn">Отправить</button>
+            </form>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
-  <section class="team-section">
-    <div class="team-content-wrapper">
-
-      <div class="team-left">
-        <img src="https://i.pravatar.cc/350?img=1" alt="Лазар" class="team-photo-big" id="team-photo-big" />
-      </div>
-
-      <div class="team-right">
-        <div id="team-details">
-          <!-- Здесь будет текст -->
+    </section>
+    <section class="team-section">
+      <div class="team-content-wrapper">
+        <div class="team-left">
+          <img
+            src="https://i.pravatar.cc/350?img=1"
+            alt="Лазар"
+            class="team-photo-big"
+            id="team-photo-big"
+          />
         </div>
 
-        <ul class="team-photo-list">
-          <li><img src="img/lazar.png" class="team-photo active" data-name="Раввин Йехезкель
- Лазар" data-role="Руководитель проекта, духовный
- и идейный лидер" data-intro="Шалом! Я Раввин Йехезкель
- Лазар" data-desc="Благодаря комбинации обширного 
+        <div class="team-right">
+          <div id="team-details">
+            <!-- Здесь будет текст -->
+          </div>
+
+          <ul class="team-photo-list">
+            <li>
+              <img
+                src="img/lazar.png"
+                class="team-photo active"
+                data-name="Раввин Йехезкель
+ Лазар"
+                data-role="Руководитель проекта, духовный
+ и идейный лидер"
+                data-intro="Шалом! Я Раввин Йехезкель
+ Лазар"
+                data-desc="Благодаря комбинации обширного 
 религиозного образования и опыту 
 выстраивания комьюнити 
 единомышленников на протяжении 8 лет, 
 раввин Йехезкель собрал настоящую 
 команду профессионалов, чтобы найти 
-подход и помочь каждому." data-quote="Время — деньги." alt="Лазар"></li>
-          <li><img src="img/temkina.png" class="team-photo" data-name="Кинерет 
-Темкина" data-role="Исполнительный директор 
-проекта" data-intro="Здравствуйте! Я Кинерет 
-Темкина" data-desc="Руководитель проектов в сфере культуры, 
+подход и помочь каждому."
+                data-quote="Время — деньги."
+                alt="Лазар"
+              />
+            </li>
+
+            <li>
+              <img
+                src="img/temkina.png"
+                class="team-photo"
+                data-name="Кинерет 
+Темкина"
+                data-role="Исполнительный директор 
+проекта"
+                data-intro="Здравствуйте! Я Кинерет 
+Темкина"
+                data-desc="Руководитель проектов в сфере культуры, 
 благотворительности и образования. В 
 основе любого успешного проекта всегда 
 стоит сильный менеджер, способный 
 оформить идею в цель и найти к ней путь. 
-Именно такие задачи решает Кинерет." data-quote="Делай лучше." alt="Кинерет Темкина"></li>
-          <li><img src="img/aminov.png" class="team-photo" data-name="Раввин Арье Аминов" data-role="Директор отдела психологической
-поддержки и главный методолог" data-intro=" Приветствую! Я Раввин Арье Аминов." data-desc="Помимо раввинской деятельности раввин 
+Именно такие задачи решает Кинерет."
+                data-quote="Делай лучше."
+                alt="Кинерет Темкина"
+              />
+            </li>
+
+            <li>
+              <img
+                src="img/aminov.png"
+                class="team-photo"
+                data-name="Раввин Арье Аминов"
+                data-role="Директор отдела психологической
+поддержки и главный методолог"
+                data-intro=" Приветствую! Я Раввин Арье Аминов."
+                data-desc="Помимо раввинской деятельности раввин 
 Арье является дипломированным 
 практикующим семейным консультантом на 
 протяжение уже 12 лет. Все 
 образовательные проекты “Еврейского дома” 
 создаются под его чутким руководством и 
-проекта личным участием." data-quote="" alt="Иван"></li>
-          <!-- <li><img src="https://i.pravatar.cc/60?img=4" class="team-photo" data-name="Мария" data-role="Дизайнер"
+проекта личным участием."
+                data-quote=""
+                alt="Иван"
+              />
+            </li>
+
+            <!-- <li><img src="https://i.pravatar.cc/60?img=4" class="team-photo" data-name="Мария" data-role="Дизайнер"
               data-intro="Привет! Я Мария." data-desc="Создаю визуальную часть проекта."
               data-quote="Красота — в деталях." alt="Мария"></li> -->
-        </ul>
-      </div>
-
-    </div>
-  </section>
-  <section class="multi-slideshow">
-    <div class="multi-slides-track" id="multi-slides-track">
-      <img src="img/1.jpg" alt="Фото 1" />
-      <img src="img/2.jpg" alt="Фото 2" />
-      <img src="img/3.jpg" alt="Фото 3" />
-      <img src="img/4.jpg" alt="Фото 4" />
-      <img src="img/1.jpg" alt="Фото 1" />
-      <img src="img/2.jpg" alt="Фото 2" />
-      <img src="img/3.jpg" alt="Фото 3" />
-      <img src="img/4.jpg" alt="Фото 4" />
-      <img src="img/5.jpg" alt="Фото 5" />
-      <img src="img/1.jpg" alt="Фото 1" />
-      <img src="img/2.jpg" alt="Фото 2" />
-      <img src="img/3.jpg" alt="Фото 3" />
-      <img src="img/4.jpg" alt="Фото 4" />
-      <img src="img/1.jpg" alt="Фото 1" />
-      <img src="img/2.jpg" alt="Фото 2" />
-      <img src="img/3.jpg" alt="Фото 3" />
-      <img src="img/4.jpg" alt="Фото 4" />
-      <img src="img/5.jpg" alt="Фото 5" />
-      <!-- Добавь больше фото по необходимости -->
-      <!-- Добавь больше фото по необходимости -->
-    </div>
-  </section>
-  <footer class="footer">
-    <div class="footer-container">
-      <div class="footer-info">
-        <h3>Связаться с нами</h3>
-        <p>📍 Россия, Москва</p>
-        <p>📞 +79167172417</p>
-        <p>✉️ info@example.com</p>
-
-        <div class="footer-socials">
-          <a href="#" target="_blank" aria-label="Facebook">
-            <img src="img/facebook.svg" alt="Facebook" />
-          </a>
-          <a href="#" target="_blank" aria-label="Instagram">
-            <img src="img/instagram.svg" alt="Instagram" />
-          </a>
-          <a href="#" target="_blank" aria-label="Telegram">
-            <img src="img/telegram.svg" alt="Telegram" />
-          </a>
+          </ul>
         </div>
       </div>
-
-      <div class="footer-map">
-        <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3381.499231738903!2d34.78052767549632!3d32.08529981915262!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x151d4b99dc94e4c3%3A0x752a2b2f2a2bbfd8!2z0KLQpiDQodCw0LHQsNC90YvQvNC40Y8!5e0!3m2!1sru!2sil!4v1710000000000!5m2!1sru!2sil"
-          width="100%" height="250" style="border: 0; border-radius: 10px;" allowfullscreen="" loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </section>
+    <section class="multi-slideshow">
+      <div class="multi-slides-track" id="multi-slides-track">
+        <img src="img/1.jpg" alt="Фото 1" />
+        <img src="img/2.jpg" alt="Фото 2" />
+        <img src="img/3.jpg" alt="Фото 3" />
+        <img src="img/4.jpg" alt="Фото 4" />
+        <img src="img/1.jpg" alt="Фото 1" />
+        <img src="img/2.jpg" alt="Фото 2" />
+        <img src="img/3.jpg" alt="Фото 3" />
+        <img src="img/4.jpg" alt="Фото 4" />
+        <img src="img/5.jpg" alt="Фото 5" />
+        <img src="img/1.jpg" alt="Фото 1" />
+        <img src="img/2.jpg" alt="Фото 2" />
+        <img src="img/3.jpg" alt="Фото 3" />
+        <img src="img/4.jpg" alt="Фото 4" />
+        <img src="img/1.jpg" alt="Фото 1" />
+        <img src="img/2.jpg" alt="Фото 2" />
+        <img src="img/3.jpg" alt="Фото 3" />
+        <img src="img/4.jpg" alt="Фото 4" />
+        <img src="img/5.jpg" alt="Фото 5" />
+        <!-- Добавь больше фото по необходимости -->
+        <!-- Добавь больше фото по необходимости -->
       </div>
-    </div>
-    <div class="footer-bottom">
-      © 2025 MySite. Все права защищены.
-    </div>
-  </footer>
+    </section>
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-info">
+          <h3>Связаться с нами</h3>
+          <p>📍 Россия, Москва</p>
+          <p>📞 +79167172417</p>
+          <p>✉️ info@example.com</p>
 
-  <script src="script.js"></script>
-</body>
+          <div class="footer-socials">
+            <a href="#" target="_blank" aria-label="Facebook">
+              <img src="img/facebook.svg" alt="Facebook" />
+            </a>
+            <a href="#" target="_blank" aria-label="Instagram">
+              <img src="img/instagram.svg" alt="Instagram" />
+            </a>
+            <a href="#" target="_blank" aria-label="Telegram">
+              <img src="img/telegram.svg" alt="Telegram" />
+            </a>
+          </div>
+        </div>
 
+        <div class="footer-map">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3381.499231738903!2d34.78052767549632!3d32.08529981915262!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x151d4b99dc94e4c3%3A0x752a2b2f2a2bbfd8!2z0KLQpiDQodCw0LHQsNC90YvQvNC40Y8!5e0!3m2!1sru!2sil!4v1710000000000!5m2!1sru!2sil"
+            width="100%"
+            height="250"
+            style="border: 0; border-radius: 10px;"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        © 2025 MySite. Все права защищены.
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
 </html>
