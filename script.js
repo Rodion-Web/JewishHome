@@ -44,3 +44,39 @@ photos.forEach((photo) => {
 if (photos.length > 0) {
   updateTeamDetails(photos[0]);
 }
+
+document.querySelectorAll(".goal-thumb").forEach((thumb) => {
+  thumb.addEventListener("click", () => {
+    const index = thumb.getAttribute("data-index");
+
+    document.querySelectorAll(".goal-main-img").forEach((img) => {
+      img.classList.remove("active");
+    });
+    document
+      .querySelector(`.goal-main-img[data-index="${index}"]`)
+      .classList.add("active");
+
+    document
+      .querySelectorAll(".goal-thumb")
+      .forEach((t) => t.classList.remove("active"));
+    thumb.classList.add("active");
+  });
+});
+
+document.querySelectorAll(".alt-thumb").forEach((thumb) => {
+  thumb.addEventListener("click", () => {
+    const index = thumb.getAttribute("data-alt-index");
+
+    document.querySelectorAll(".alt-main-img").forEach((img) => {
+      img.classList.remove("active");
+    });
+    document
+      .querySelector(`.alt-main-img[data-alt-index="${index}"]`)
+      .classList.add("active");
+
+    document
+      .querySelectorAll(".alt-thumb")
+      .forEach((t) => t.classList.remove("active"));
+    thumb.classList.add("active");
+  });
+});

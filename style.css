@@ -317,11 +317,13 @@ body {
   .footer-map iframe {
     height: 200px;
   }
+
   .logo {
     width: 50%;
     font-size: 13px;
   }
 }
+
 .multi-slideshow {
   overflow: hidden;
   width: 100%;
@@ -335,8 +337,8 @@ body {
 }
 
 .multi-slides-track img {
-  width: calc(100vw / 3); /* 3 изображения на экран */
-  height: 60vh;
+  width: calc(100vw / 5);
+  height: 40vh;
   object-fit: cover;
 }
 
@@ -344,6 +346,7 @@ body {
   0% {
     transform: translateX(0);
   }
+
   100% {
     transform: translateX(-100%);
   }
@@ -353,6 +356,7 @@ body {
 .multi-slides-track img {
   flex-shrink: 0;
 }
+
 @media (max-width: 768px) {
   .multi-slides-track img {
     width: calc(100vw / 2);
@@ -452,6 +456,7 @@ body {
   font-weight: 600;
   cursor: pointer;
 }
+
 @media (max-width: 768px) {
   .application-wrapper {
     flex-direction: column;
@@ -466,15 +471,18 @@ body {
   .form-box {
     padding: 20px;
   }
+
   .buttons {
     flex-direction: column;
   }
 }
+
 .video-wrapper video {
   width: 100%;
   height: auto;
   border-radius: 10px;
 }
+
 .contact-form label {
   text-align: left;
   font-size: 0.95rem;
@@ -482,30 +490,37 @@ body {
   margin-bottom: -10px;
   margin-top: 5px;
 }
+
 .container,
 .goal-wrapper,
 .application-wrapper,
 .footer-container {
-  max-width: 1200px; /* или другая нужная ширина */
+  max-width: 1200px;
+  /* или другая нужная ширина */
   margin-left: auto;
   margin-right: auto;
-  padding-left: 15px; /* небольшой внутренний отступ */
+  padding-left: 15px;
+  /* небольшой внутренний отступ */
   padding-right: 15px;
   width: 100%;
   box-sizing: border-box;
 }
+
 .team-section {
   background: linear-gradient(135deg, #6f00ff, #98f0c9);
-  min-height: 50vh; /* теперь занимает весь экран по высоте */
-  width: 100vw; /* и по ширине */
+  min-height: 50vh;
+  width: 100vw;
   padding: 60px 20px;
-  border-radius: 0; /* убираем скругление, если нужно */
+  border-radius: 0;
   color: white;
   box-sizing: border-box;
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
+  gap: 10vh;
 }
+
 .team-content-wrapper {
   display: flex;
   justify-content: space-between;
@@ -522,6 +537,7 @@ body {
   display: flex;
   justify-content: center;
 }
+
 .team-photo-big {
   width: 100%;
   max-width: 350px;
@@ -545,18 +561,22 @@ body {
 #team-details {
   background: rgba(255 255 255 / 0.9);
   flex: 1;
-  max-width: 800px; /* ограничиваем ширину */
-  padding: 30px; /* уменьшаем внутренние отступы */
+  max-width: 800px;
+  /* ограничиваем ширину */
+  padding: 30px;
+  /* уменьшаем внутренние отступы */
   color: black;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
+
 .team-name {
   font-size: 2rem;
   margin-bottom: 5px;
   color: #1a237e;
 }
+
 .team-position {
   text-transform: uppercase;
   font-size: 0.9rem;
@@ -564,9 +584,11 @@ body {
   margin-bottom: 25px;
   color: #e64a19;
 }
-.team-message p + p {
+
+.team-message p+p {
   margin-top: 10px;
 }
+
 .team-quote {
   background: #ccff00;
   color: #111;
@@ -579,6 +601,7 @@ body {
   font-style: normal;
   margin-top: 30px;
 }
+
 .team-quote p {
   margin-top: 10px;
   font-style: italic;
@@ -594,9 +617,11 @@ body {
   gap: 15px;
   z-index: 10;
 }
+
 .team-photo-list li {
   list-style: none;
 }
+
 .team-photo-list img {
   width: 60px;
   height: 60px;
@@ -606,6 +631,7 @@ body {
   object-fit: cover;
   transition: transform 0.3s, border-color 0.3s;
 }
+
 .team-photo-list img.active {
   border-color: #f0ff00;
   transform: scale(1.15);
@@ -619,24 +645,367 @@ body {
     align-items: center;
     gap: 40px;
   }
+
   .team-left {
     width: 100%;
   }
+
   .team-photo-list {
     position: static;
     flex-direction: row;
     justify-content: center;
     margin-top: 20px;
   }
+
   .team-photo-list img {
     width: 50px;
     height: 50px;
   }
+
   .team-right {
     position: static;
     gap: 20px;
   }
+
   #team-details {
     max-width: 100%;
   }
+}
+
+
+
+@media (max-width: 900px) {
+  .team-content-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    gap: 0;
+  }
+
+  .team-right {
+    order: 2;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 350px;
+  }
+
+  .team-left {
+    order: 1;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+  }
+
+  .team-photo-big {
+    width: 100%;
+    max-width: 350px;
+    border-radius: 10px;
+    margin: 0;
+  }
+
+  #team-details {
+    order: 3;
+    width: 100%;
+    padding: 20px;
+    text-align: center;
+    margin: 0;
+  }
+
+  .team-photo-list {
+    position: absolute;
+    top: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+    flex-direction: row;
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    z-index: 10;
+    width: 100%;
+    max-width: 350px;
+  }
+
+  .team-photo-list img {
+    width: 50px;
+    height: 50px;
+  }
+
+  .application-right {
+    margin-top: 50px;
+  }
+}
+
+.goal-section-modern {
+  padding: 80px 20px;
+  background-color: #ffd2bb;
+  font-family: 'Rubik', sans-serif;
+}
+
+.goal-container {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+  align-items: center;
+  gap: 40px;
+}
+
+.goal-images {
+  flex: 1;
+  position: relative;
+  min-width: 300px;
+}
+
+.goal-main-img {
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+  object-fit: cover;
+}
+
+.goal-overlay-img {
+  width: 150px;
+  border-radius: 4px;
+  position: absolute;
+  bottom: -30px;
+  left: 30px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.goal-text {
+  flex: 1;
+  min-width: 300px;
+}
+
+.goal-intro {
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #888;
+  margin-bottom: 10px;
+}
+
+.goal-text h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  font-weight: 700;
+  color: #111;
+}
+
+.goal-text p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #333;
+}
+
+/* Адаптив */
+@media (max-width: 768px) {
+  .goal-container {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .goal-overlay-img {
+    position: relative;
+    bottom: 0;
+    left: 0;
+    margin-top: 20px;
+  }
+
+  .goal-text h2 {
+    font-size: 2rem;
+    text-align: center;
+  }
+
+  .goal-text p {
+    text-align: center;
+  }
+
+  .goal-intro {
+    text-align: center;
+  }
+}
+
+.slider-wrapper {
+  position: relative;
+}
+
+.slider-main {
+  position: relative;
+}
+
+.goal-main-img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  display: none;
+}
+
+.goal-main-img.active {
+  display: block;
+}
+
+.slider-thumbnails {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.goal-thumb {
+  width: 60px;
+  height: 60px;
+  border-radius: 6px;
+  object-fit: cover;
+  cursor: pointer;
+  opacity: 0.6;
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.goal-thumb.active {
+  opacity: 1;
+  border-color: #4a148c;
+}
+
+@media (max-width: 768px) {
+  .slider-thumbnails {
+    justify-content: center;
+  }
+}
+
+.goal-container.reversed {
+  flex-direction: row-reverse;
+}
+
+@media (max-width: 768px) {
+  .goal-container.reversed {
+    flex-direction: column;
+  }
+}
+
+.goal-section-alt {
+  padding: 80px 20px;
+  background-color: #489bb7;
+  font-family: 'Rubik', sans-serif;
+}
+
+.goal-alt-container {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 40px;
+  align-items: center;
+}
+
+.goal-alt-text {
+  flex: 1;
+  min-width: 300px;
+}
+
+.goal-alt-intro {
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #ffffff;
+  margin-bottom: 10px;
+}
+
+.goal-alt-text h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.goal-alt-text p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #ffffff;
+}
+
+.goal-alt-gallery {
+  flex: 1;
+  min-width: 300px;
+}
+
+.alt-slider-main {
+  position: relative;
+}
+
+.alt-main-img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  display: none;
+}
+
+.alt-main-img.active {
+  display: block;
+}
+
+.alt-slider-thumbnails {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.alt-thumb {
+  width: 60px;
+  height: 60px;
+  border-radius: 6px;
+  object-fit: cover;
+  cursor: pointer;
+  opacity: 0.6;
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.alt-thumb.active {
+  opacity: 1;
+  border-color: #e64a19;
+}
+
+/* Адаптив */
+@media (max-width: 768px) {
+  .goal-alt-container {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .goal-alt-text,
+  .goal-alt-gallery {
+    text-align: center;
+  }
+
+  .alt-slider-thumbnails {
+    justify-content: center;
+  }
+
+  .goal-alt-text h2 {
+    font-size: 2rem;
+  }
+
+  .goal-alt-text p {
+    font-size: 1rem;
+  }
+}
+
+.goal-section-modern,
+.goal-section-alt {
+  position: relative;
+  z-index: 1;
+  background-image: url('waves.svg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-blend-mode: soft-light;
 }
