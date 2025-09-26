@@ -11,31 +11,89 @@
 </head>
 
 <body>
-  <header class="hero">
+  <header class="hero" id="hero">
     <div class="overlay"></div>
     <div class="container">
       <nav class="navbar">
-        <div class="logo">
-          Место поддержки и вдохновения для твоей еврейской семьи
+        <div class="navbar-left">
+          <img src="img/logo.png" alt="Логотип" class="nav-logo" />
         </div>
-        <div class="menu-toggle" id="menu-toggle">&#9776;</div>
+        <div class="menu-toggle" id="menu-toggle">
+          <span></span><span></span><span></span>
+        </div>
         <ul class="nav-links" id="nav-links">
-          <li><a href="#">Главная</a></li>
-          <li><a href="#">О нас</a></li>
-          <li><a href="#">Контакты</a></li>
+          <li><a href="#hero">Главная</a></li>
+          <li><a href="#about">О нас</a></li>
+          <li><a href="#contacts">Контакты</a></li>
+          <li><a href="#donate" class="btn-donate">Donate</a></li>
         </ul>
       </nav>
       <div class="hero-content">
-        <img src="img/logo.png" alt="Логотип" class="hero-logo" />
+        <h2 class="hero-title">
+          Место поддержки и вдохновения<br />
+          для твоей еврейской семьи
+        </h2>
         <div class="buttons">
-          <a href="#more" class="btn">Узнать больше</a>
+          <a href="#about" class="btn">Узнать больше</a>
           <a href="#register" class="btn btn-secondary">Зарегистрироваться</a>
         </div>
       </div>
     </div>
   </header>
   <!-- Первый блок: фото слева -->
-  <section class="goal-section-modern">
+  <section id="about" class="goal-section-modern">
+    <div class="goal-container">
+      <div class="goal-images slider-wrapper">
+        <div class="slider-main">
+          <img src="./img/pair.jpg" alt="Слайд 1" class="goal-main-img active" data-index="0" />
+          <img src="./img/pair.jpg" alt="Слайд 2" class="goal-main-img" data-index="1" />
+          <img src="./img/pair.jpg" alt="Слайд 3" class="goal-main-img" data-index="2" />
+        </div>
+        <div class="slider-thumbnails">
+          <img src="./img/pair.jpg" alt="Слайд 1" class="goal-thumb active" data-index="0" />
+          <img src="./img/pair.jpg" alt="Слайд 2" class="goal-thumb" data-index="1" />
+          <img src="./img/pair.jpg" alt="Слайд 3" class="goal-thumb" data-index="2" />
+        </div>
+      </div>
+      <div class="goal-text">
+        <p class="goal-intro">НАША ЦЕЛЬ</p>
+        <h2>Крепкая и счастливая еврейская семья</h2>
+        <p>
+          Помочь каждому создать крепкую и счастливую еврейскую семью,
+          предоставляя инструменты для построения отношений как между мужем и
+          женой, так и с детьми.
+        </p>
+      </div>
+    </div>
+  </section>
+  <!-- Второй блок: текст слева -->
+  <section class="goal-section-alt">
+    <div class="goal-alt-container">
+      <div class="goal-alt-text">
+        <p class="goal-alt-intro">АКТУАЛЬНОСТЬ</p>
+        <h2>Еврейское община - забота и поддержка.</h2>
+        <p>
+          На данный момент реализуются множество программ для детей, молодежи
+          и взрослых, однако, на данный момент в общине нет ни одного проекта
+          для семей. Поэтому мы и создали проект “Еврейский дом”
+        </p>
+      </div>
+      <div class="goal-alt-gallery">
+        <div class="alt-slider-main">
+          <img src="img/pair.jpg" alt="Слайд 1" class="alt-main-img active" data-alt-index="0" />
+          <img src="img/pair.jpg" alt="Слайд 2" class="alt-main-img" data-alt-index="1" />
+          <img src="img/pair.jpg" alt="Слайд 3" class="alt-main-img" data-alt-index="2" />
+        </div>
+        <div class="alt-slider-thumbnails">
+          <img src="img/pair.jpg" alt="Слайд 1" class="alt-thumb active" data-alt-index="0" />
+          <img src="img/pair.jpg" alt="Слайд 2" class="alt-thumb" data-alt-index="1" />
+          <img src="img/pair.jpg" alt="Слайд 3" class="alt-thumb" data-alt-index="2" />
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Третий блок: текст слева -->
+  <section class="goal-section-modern" style="background-color: #DB9C7D;">
     <div class="goal-container">
       <div class="goal-images slider-wrapper">
         <div class="slider-main">
@@ -50,29 +108,26 @@
         </div>
       </div>
       <div class="goal-text">
-        <p class="goal-intro">НАША ЦЕЛЬ</p>
-        <h2>Крепкая и счастливая еврейская семья</h2>
+        <p class="goal-intro">Наш путь</p>
+        <h2>Еврейский дом — пространство для семьи</h2>
         <p>
-          Помочь каждому создать крепкую и счастливую еврейскую семью,
-          предоставляя инструменты для построения отношений как между мужем
-          и женой, так и с детьми.
+          Мы прошли путь от создания пространства с нуля до первых лекций и
+          семинара для 120 семей. «Еврейский дом» — это место, где каждая
+          семья может прикоснуться к мудрости еврейского учения, получить
+          знания и найти единомышленников.
         </p>
       </div>
     </div>
   </section>
-
-  <!-- Второй блок: текст слева -->
   <section class="goal-section-alt">
     <div class="goal-alt-container">
       <div class="goal-alt-text">
-        <p class="goal-alt-intro">АКТУАЛЬНОСТЬ</p>
-        <h2>Еврейское община - забота и поддержка.
-        </h2>
+        <p class="goal-alt-intro">Пожертвование</p>
+        <h2>Еврейское община - забота и поддержка.</h2>
         <p>
-          На данный момент реализуются
-          множество программ для детей, молодежи и взрослых, однако, на данный момент в общине нет ни одного проекта для
-          семей.
-          Поэтому мы и создали проект “Еврейский дом”
+          На данный момент реализуются множество программ для детей, молодежи
+          и взрослых, однако, на данный момент в общине нет ни одного проекта
+          для семей. Поэтому мы и создали проект “Еврейский дом”
         </p>
       </div>
       <div class="goal-alt-gallery">
@@ -90,82 +145,267 @@
     </div>
   </section>
   <section class="team-section">
-    <div>
-      <h1>НАША КОМАНДА</h1>
-    </div>
-    <div class="team-content-wrapper">
-      <div class="team-left">
-        <img src="https://i.pravatar.cc/350?img=1" alt="Лазар" class="team-photo-big" id="team-photo-big" />
-      </div>
+    <div class="team-container">
+      <h1 class="team-title">НАША КОМАНДА</h1>
+      <div class="team-slider">
+        <div class="team-slides-wrapper">
+          <div class="team-slide active" data-slide="0">
+            <div class="team-slide-content">
+              <div class="team-photo-container">
+                <img src="img/lazar.png" alt="Раввин Йехезкель Лазар" class="team-photo" />
+              </div>
+              <div class="team-info">
+                <h2 class="team-name">Раввин Йехезкель Лазар</h2>
+                <p class="team-intro">Шалом! Я Раввин Йехезкель Лазар</p>
+                <p class="team-description">Благодаря комбинации обширного религиозного образования и опыту выстраивания
+                  комьюнити единомышленников на протяжении 8 лет, раввин Йехезкель собрал настоящую команду
+                  профессионалов, чтобы найти подход и помочь каждому.</p>
+              </div>
+            </div>
+          </div>
 
-      <div class="team-right">
-        <div id="team-details">
-          <!-- Здесь будет текст -->
+          <div class="team-slide" data-slide="1">
+            <div class="team-slide-content">
+              <div class="team-photo-container">
+                <img src="img/temkina.png" alt="Кинерет Темкина" class="team-photo" />
+              </div>
+              <div class="team-info">
+                <h2 class="team-name">Кинерет Темкина</h2>
+                <p class="team-intro">Здравствуйте! Я Кинерет Темкина</p>
+                <p class="team-description">Руководитель проектов в сфере культуры, благотворительности и образования. В
+                  основе любого успешного проекта всегда стоит сильный менеджер, способный оформить идею в цель и найти
+                  к ней путь. Именно такие задачи решает Кинерет.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="team-slide" data-slide="2">
+            <div class="team-slide-content">
+              <div class="team-photo-container">
+                <img src="img/aminov.png" alt="Раввин Арье Аминов" class="team-photo" />
+              </div>
+              <div class="team-info">
+                <h2 class="team-name">Раввин Арье Аминов</h2>
+                <p class="team-intro">Приветствую! Я Раввин Арье Аминов.</p>
+                <p class="team-description">Помимо раввинской деятельности раввин Арье является дипломированным
+                  практикующим семейным консультантом на протяжение уже 12 лет. Все образовательные проекты "Еврейского
+                  дома" создаются под его чутким руководством и проекта личным участием.</p>
+              </div>
+            </div>
+          </div>
         </div>
 
-        <ul class="team-photo-list">
-          <li>
-            <img src="img/lazar.png" class="team-photo active" data-name="Раввин Йехезкель
- Лазар" data-role="Руководитель проекта, духовный
- и идейный лидер" data-intro="Шалом! Я Раввин Йехезкель
- Лазар" data-desc="Благодаря комбинации обширного 
-религиозного образования и опыту 
-выстраивания комьюнити 
-единомышленников на протяжении 8 лет, 
-раввин Йехезкель собрал настоящую 
-команду профессионалов, чтобы найти 
-подход и помочь каждому." data-quote="Время — деньги." alt="Лазар" />
-          </li>
-
-          <li>
-            <img src="img/temkina.png" class="team-photo" data-name="Кинерет 
-Темкина" data-role="Исполнительный директор 
-проекта" data-intro="Здравствуйте! Я Кинерет 
-Темкина" data-desc="Руководитель проектов в сфере культуры, 
-благотворительности и образования. В 
-основе любого успешного проекта всегда 
-стоит сильный менеджер, способный 
-оформить идею в цель и найти к ней путь. 
-Именно такие задачи решает Кинерет." data-quote="Делай лучше." alt="Кинерет Темкина" />
-          </li>
-
-          <li>
-            <img src="img/aminov.png" class="team-photo" data-name="Раввин Арье Аминов" data-role="Директор отдела психологической
-поддержки и главный методолог" data-intro=" Приветствую! Я Раввин Арье Аминов." data-desc="Помимо раввинской деятельности раввин 
-Арье является дипломированным 
-практикующим семейным консультантом на 
-протяжение уже 12 лет. Все 
-образовательные проекты “Еврейского дома” 
-создаются под его чутким руководством и 
-проекта личным участием." data-quote="" alt="Иван" />
-          </li>
-          <li>
-            <img src="img/aminov.png" class="team-photo" data-name="Раввин Арье Аминов" data-role="Директор отдела психологической
-поддержки и главный методолог" data-intro=" Приветствую! Я Раввин Арье Аминов." data-desc="Помимо раввинской деятельности раввин 
-Арье является дипломированным 
-практикующим семейным консультантом на 
-протяжение уже 12 лет. Все 
-образовательные проекты “Еврейского дома” 
-создаются под его чутким руководством и 
-проекта личным участием." data-quote="" alt="Иван" />
-          </li>
-          <li>
-            <img src="img/temkina.png" class="team-photo" data-name="Кинерет 
-Темкина" data-role="Исполнительный директор 
-проекта" data-intro="Здравствуйте! Я Кинерет 
-Темкина" data-desc="Руководитель проектов в сфере культуры, 
-благотворительности и образования. В 
-основе любого успешного проекта всегда 
-стоит сильный менеджер, способный 
-оформить идею в цель и найти к ней путь. 
-Именно такие задачи решает Кинерет." data-quote="Делай лучше." alt="Кинерет Темкина" />
-          </li>
-
-        </ul>
+        <div class="team-navigation">
+          <button class="team-nav-btn team-prev" id="teamPrev">‹</button>
+          <div class="team-dots">
+            <span class="team-dot active" data-slide="0"></span>
+            <span class="team-dot" data-slide="1"></span>
+            <span class="team-dot" data-slide="2"></span>
+            <span class="team-dot" data-slide="3"></span>
+            <span class="team-dot" data-slide="4"></span>
+          </div>
+          <button class="team-nav-btn team-next" id="teamNext">›</button>
+        </div>
       </div>
     </div>
   </section>
-  <section class="application-section" id="register">
+
+  <!-- Секция мероприятий в формате сторис -->
+  <section class="events-stories-section" id="events">
+    <div class="events-container">
+      <h2 class="events-title">Наши мероприятия</h2>
+
+      <!-- Десктопная версия -->
+      <div class="events-stories desktop-version">
+        <div class="story-item" data-event="1">
+          <div class="story-poster">
+            <img src="img/1.jpg" alt="Мероприятие 1" />
+            <div class="story-overlay">
+              <h3>Лекция "Семейные ценности"</h3>
+              <p>15 января 2025</p>
+            </div>
+          </div>
+        </div>
+        <div class="story-item" data-event="2">
+          <div class="story-poster">
+            <img src="img/2.jpg" alt="Мероприятие 2" />
+            <div class="story-overlay">
+              <h3>Мастер-класс "Еврейская кухня"</h3>
+              <p>22 января 2025</p>
+            </div>
+          </div>
+        </div>
+        <div class="story-item" data-event="3">
+          <div class="story-poster">
+            <img src="img/3.jpg" alt="Мероприятие 3" />
+            <div class="story-overlay">
+              <h3>Семинар "Воспитание детей"</h3>
+              <p>29 января 2025</p>
+            </div>
+          </div>
+        </div>
+        <div class="story-item" data-event="4">
+          <div class="story-poster">
+            <img src="img/4.jpg" alt="Мероприятие 4" />
+            <div class="story-overlay">
+              <h3>Праздник "Шаббат"</h3>
+              <p>5 февраля 2025</p>
+            </div>
+          </div>
+        </div>
+        <div class="story-item" data-event="5">
+          <div class="story-poster">
+            <img src="img/5.jpg" alt="Мероприятие 5" />
+            <div class="story-overlay">
+              <h3>Встреча "Молодые семьи"</h3>
+              <p>12 февраля 2025</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Мобильная версия - сторис слайдер -->
+      <div class="events-stories-mobile mobile-version">
+        <div class="stories-container">
+          <div class="story-slide active" data-event="1">
+            <div class="story-content">
+              <div class="story-image">
+                <img src="img/1.jpg" alt="Лекция 'Семейные ценности'" />
+              </div>
+              <div class="story-info">
+                <h3>Лекция "Семейные ценности"</h3>
+                <p class="story-date">15 января 2025</p>
+                <p class="story-time">19:00</p>
+                <p class="story-location">Еврейский дом</p>
+                <p class="story-price">Бесплатно</p>
+                <p class="story-description">Присоединяйтесь к нам на увлекательную лекцию о еврейских семейных
+                  ценностях. Мы обсудим традиции, которые помогают создавать крепкие и счастливые семьи.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="story-slide" data-event="2">
+            <div class="story-content">
+              <div class="story-image">
+                <img src="img/2.jpg" alt="Мастер-класс 'Еврейская кухня'" />
+              </div>
+              <div class="story-info">
+                <h3>Мастер-класс "Еврейская кухня"</h3>
+                <p class="story-date">22 января 2025</p>
+                <p class="story-time">18:00</p>
+                <p class="story-location">Еврейский дом</p>
+                <p class="story-price">500 руб.</p>
+                <p class="story-description">Научитесь готовить традиционные еврейские блюда! Наш мастер-класс включает
+                  приготовление халы, гефилте фиш и других любимых блюд.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="story-slide" data-event="3">
+            <div class="story-content">
+              <div class="story-image">
+                <img src="img/3.jpg" alt="Семинар 'Воспитание детей'" />
+              </div>
+              <div class="story-info">
+                <h3>Семинар "Воспитание детей"</h3>
+                <p class="story-date">29 января 2025</p>
+                <p class="story-time">19:30</p>
+                <p class="story-location">Еврейский дом</p>
+                <p class="story-price">Бесплатно</p>
+                <p class="story-description">Практический семинар о еврейском подходе к воспитанию детей. Обсудим
+                  вопросы дисциплины, образования и передачи традиций.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="story-slide" data-event="4">
+            <div class="story-content">
+              <div class="story-image">
+                <img src="img/4.jpg" alt="Праздник 'Шаббат'" />
+              </div>
+              <div class="story-info">
+                <h3>Праздник "Шаббат"</h3>
+                <p class="story-date">5 февраля 2025</p>
+                <p class="story-time">18:30</p>
+                <p class="story-location">Еврейский дом</p>
+                <p class="story-price">Бесплатно</p>
+                <p class="story-description">Приглашаем всю семью на традиционный праздник Шаббат. В программе:
+                  зажигание свечей, кидуш, трапеза и общение.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="story-slide" data-event="5">
+            <div class="story-content">
+              <div class="story-image">
+                <img src="img/5.jpg" alt="Встреча 'Молодые семьи'" />
+              </div>
+              <div class="story-info">
+                <h3>Встреча "Молодые семьи"</h3>
+                <p class="story-date">12 февраля 2025</p>
+                <p class="story-time">20:00</p>
+                <p class="story-location">Еврейский дом</p>
+                <p class="story-price">Бесплатно</p>
+                <p class="story-description">Специальная встреча для молодых семей. Обсудим вызовы современной семейной
+                  жизни, поделимся опытом и найдем единомышленников.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Навигация для мобильных сторис -->
+        <div class="stories-navigation">
+          <button class="stories-nav-btn stories-prev" id="storiesPrev">‹</button>
+          <div class="stories-dots">
+            <span class="stories-dot active" data-slide="0"></span>
+            <span class="stories-dot" data-slide="1"></span>
+            <span class="stories-dot" data-slide="2"></span>
+            <span class="stories-dot" data-slide="3"></span>
+            <span class="stories-dot" data-slide="4"></span>
+          </div>
+          <button class="stories-nav-btn stories-next" id="storiesNext">›</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Модальное окно для мероприятия -->
+  <div class="event-modal" id="eventModal">
+    <div class="modal-overlay"></div>
+    <div class="modal-content">
+      <button class="modal-close" id="modalClose">&times;</button>
+      <div class="modal-header">
+        <h2 id="modalTitle">Название мероприятия</h2>
+        <p id="modalDate">Дата</p>
+      </div>
+      <div class="modal-body">
+        <div class="modal-gallery" id="modalGallery">
+          <!-- Фотографии будут добавлены через JavaScript -->
+        </div>
+        <div class="modal-info">
+          <h3>Описание</h3>
+          <p id="modalDescription">Описание мероприятия</p>
+          <div class="modal-details">
+            <div class="detail-item">
+              <strong>Время:</strong>
+              <span id="modalTime">19:00</span>
+            </div>
+            <div class="detail-item">
+              <strong>Место:</strong>
+              <span id="modalLocation">Еврейский дом</span>
+            </div>
+            <div class="detail-item">
+              <strong>Стоимость:</strong>
+              <span id="modalPrice">Бесплатно</span>
+            </div>
+          </div>
+          <button class="btn btn-register">Зарегистрироваться</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section class="application-section">
     <div class="application-wrapper">
       <!-- Левая часть: Мероприятия -->
       <div class="application-left">
@@ -173,19 +413,18 @@
         <!-- <p>Мы регулярно проводим лекции, встречи, праздники и мастер-классы для всей семьи.</p> -->
         <div class="video-wrapper">
           <video controls width="100%" poster="img/video-poster.png">
-            <source src="video/event1.mp4" type="video/mp4" />
+            <source src="./video/event1.mp4" type="video/mp4" />
             Ваш браузер не поддерживает видео.
           </video>
           <video controls width="100%" poster="img/video-poster.png">
-            <source src="video/event2.mp4" type="video/mp4" />
+            <source src="./video/event2.mp4" type="video/mp4" />
             Ваш браузер не поддерживает видео.
           </video>
         </div>
       </div>
-
       <!-- Правая часть: Форма -->
       <div class="application-right">
-        <div class="form-box">
+        <div class="form-box" id="register">
           <h3>Оставьте заявку</h3>
           <form class="contact-form">
             <input type="text" name="name" placeholder="Ваше имя" required />
@@ -203,61 +442,53 @@
   </section>
   <section class="multi-slideshow">
     <div class="multi-slides-track" id="multi-slides-track">
-      <img src="img/1.jpg" alt="Фото 1" />
-      <img src="img/2.jpg" alt="Фото 2" />
-      <img src="img/3.jpg" alt="Фото 3" />
-      <img src="img/4.jpg" alt="Фото 4" />
-      <img src="img/1.jpg" alt="Фото 1" />
-      <img src="img/2.jpg" alt="Фото 2" />
-      <img src="img/3.jpg" alt="Фото 3" />
-      <img src="img/4.jpg" alt="Фото 4" />
-      <img src="img/5.jpg" alt="Фото 5" />
-      <img src="img/1.jpg" alt="Фото 1" />
-      <img src="img/2.jpg" alt="Фото 2" />
-      <img src="img/3.jpg" alt="Фото 3" />
-      <img src="img/4.jpg" alt="Фото 4" />
-      <img src="img/1.jpg" alt="Фото 1" />
-      <img src="img/2.jpg" alt="Фото 2" />
-      <img src="img/3.jpg" alt="Фото 3" />
-      <img src="img/4.jpg" alt="Фото 4" />
-      <img src="img/5.jpg" alt="Фото 5" />
+      <img src="./img/" alt="Фото 1" />
+      <img src="./img/2.jpg" alt="Фото 2" />
+      <img src="./img/3.jpg" alt="Фото 3" />
+      <img src="./img/4.jpg" alt="Фото 4" />
+      <img src="./img/1.jpg" alt="Фото 1" />
+      <img src="./img/2.jpg" alt="Фото 2" />
+      <img src="./img/3.jpg" alt="Фото 3" />
+      <img src="./img/4.jpg" alt="Фото 4" />
+      <img src="./img/5.jpg" alt="Фото 5" />
+      <img src="./img/1.jpg" alt="Фото 1" />
+      <img src="./img/2.jpg" alt="Фото 2" />
+      <img src="./img/3.jpg" alt="Фото 3" />
+      <img src="./img/4.jpg" alt="Фото 4" />
+      <img src="./img/1.jpg" alt="Фото 1" />
+      <img src="./img/2.jpg" alt="Фото 2" />
+      <img src="./img/3.jpg" alt="Фото 3" />
+      <img src="./img/4.jpg" alt="Фото 4" />
+      <img src="./img/5.jpg" alt="Фото 5" />
       <!-- Добавь больше фото по необходимости -->
       <!-- Добавь больше фото по необходимости -->
     </div>
   </section>
-  <footer class="footer">
+  <footer id="contacts" class="footer">
     <div class="footer-container">
       <div class="footer-info">
         <h3>Связаться с нами</h3>
         <p>📍 Россия, Москва</p>
-        <p>📞 +79167172417</p>
-        <p>✉️ info@example.com</p>
-
+        <p>📞 +79099907705</p>
+        <p>✉️ 770jhome@gmail.com</p>
         <div class="footer-socials">
-          <a href="#" target="_blank" aria-label="Facebook">
-            <img src="img/facebook.svg" alt="Facebook" />
-          </a>
-          <a href="#" target="_blank" aria-label="Instagram">
-            <img src="img/instagram.svg" alt="Instagram" />
-          </a>
-          <a href="#" target="_blank" aria-label="Telegram">
-            <img src="img/telegram.svg" alt="Telegram" />
-          </a>
+          <a href="https://t.me/HabaitHayehudi" target="_blank" aria-label="Telegram">
+            <img src="./img/telegram.png" alt="Telegram" />
+
         </div>
       </div>
-
       <div class="footer-map">
-        <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3381.499231738903!2d34.78052767549632!3d32.08529981915262!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x151d4b99dc94e4c3%3A0x752a2b2f2a2bbfd8!2z0KLQpiDQodCw0LHQsNC90YvQvNC40Y8!5e0!3m2!1sru!2sil!4v1710000000000!5m2!1sru!2sil"
-          width="100%" height="250" style="border: 0; border-radius: 10px;" allowfullscreen="" loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <div style="position:relative;overflow:hidden;"><a
+            href="https://yandex.ru/maps/213/moscow/?utm_medium=mapframe&utm_source=maps"
+            style="color:#eee;font-size:12px;position:absolute;top:0px;">Москва</a><a
+            href="https://yandex.ru/maps/213/moscow/house/ulitsa_obraztsova_4/Z04YcAdoTUwHQFtvfXt5d3ljZA==/?ll=37.608573%2C55.786288&utm_medium=mapframe&utm_source=maps&z=18.88"
+            style="color:#eee;font-size:12px;position:absolute;top:14px;">Улица Образцова, 4 — Яндекс Карты</a><iframe
+            src="https://yandex.ru/map-widget/v1/?ll=37.608573%2C55.786288&mode=search&ol=geo&ouri=ymapsbm1%3A%2F%2Fgeo%3Fdata%3DCgg1Njc0Mjc5MRI80KDQvtGB0YHQuNGPLCDQnNC-0YHQutCy0LAsINGD0LvQuNGG0LAg0J7QsdGA0LDQt9GG0L7QstCwLCA0IgoNGG8WQhVgJV9C&z=18.88"
+            width="100%" height="200" frameborder="1" allowfullscreen="true" style="position:relative;"></iframe></div>
       </div>
     </div>
-    <div class="footer-bottom">
-      © 2025 MySite. Все права защищены.
-    </div>
+    <div class="footer-bottom">© 2025 MySite. Все права защищены.</div>
   </footer>
-
   <script src="script.js"></script>
 </body>
 
