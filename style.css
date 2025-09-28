@@ -52,6 +52,7 @@ body {
   list-style: none;
   display: flex;
   gap: 25px;
+  align-items: center;
 }
 
 .nav-links li a {
@@ -358,8 +359,8 @@ body {
 }
 
 .multi-slides-track img {
-  width: calc(100vw / 5);
-  height: 40vh;
+  width: calc(100vw / 3);
+  /* height: 60vh; */
   object-fit: cover;
   flex-shrink: 0;
 }
@@ -555,7 +556,7 @@ body {
   color: #e64a19;
 }
 
-.team-message p + p {
+.team-message p+p {
   margin-top: 10px;
 }
 
@@ -816,6 +817,7 @@ body {
     opacity: 0;
     transform: translateY(30px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -827,6 +829,7 @@ body {
     opacity: 0;
     transform: translateX(-30px);
   }
+
   to {
     opacity: 1;
     transform: translateX(0);
@@ -838,6 +841,7 @@ body {
     opacity: 0;
     transform: translateX(30px);
   }
+
   to {
     opacity: 1;
     transform: translateX(0);
@@ -849,6 +853,7 @@ body {
     opacity: 0;
     transform: scale(0.9);
   }
+
   to {
     opacity: 1;
     transform: scale(1);
@@ -860,6 +865,7 @@ body {
     opacity: 0;
     transform: translateY(50px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -1222,6 +1228,7 @@ body {
     opacity: 0;
     transform: translateY(-50px) scale(0.9);
   }
+
   to {
     opacity: 1;
     transform: translateY(0) scale(1);
@@ -1753,6 +1760,7 @@ body {
     gap: 20px;
   }
 }
+
 .container {
   max-width: 1200px;
   width: 100%;
@@ -1815,6 +1823,7 @@ body {
 .application-wrapper,
 .footer-container {
   max-width: 1200px;
+  width: 100%;
   margin: 0 auto;
   padding: 0 20px;
 }
@@ -1849,6 +1858,7 @@ body {
 
 /* Адаптивность для мобильных */
 @media (max-width: 768px) {
+
   .container,
   .goal-container,
   .goal-alt-container,
@@ -1868,6 +1878,7 @@ body {
     padding: 15px;
   }
 }
+
 /* Фиксированный навбар на мобильных при прокрутке */
 .navbar {
   transition: all 0.3s ease;
@@ -1900,7 +1911,8 @@ body.navbar-fixed {
   }
 
   .navbar.scrolled .nav-logo {
-    width: 150px; /* Уменьшаем логотип в фиксированном состоянии */
+    width: 150px;
+    /* Уменьшаем логотип в фиксированном состоянии */
   }
 
   /* Убеждаемся, что навбар поверх всего */
@@ -1911,10 +1923,13 @@ body.navbar-fixed {
 
 /* Дополнительные стили для улучшения внешнего вида */
 .navbar.scrolled .nav-links {
-  background-color: transparent; /* Убираем фон у меню в фиксированном состоянии */
+  background-color: transparent;
+  /* Убираем фон у меню в фиксированном состоянии */
 }
 
 .navbar.scrolled .nav-links.active {
-  background-color: #04131e; /* Сохраняем фон при открытом меню */
-  margin-top: 100px; /* Отступ от фиксированного навбара */
+  background-color: #04131e;
+  /* Сохраняем фон при открытом меню */
+  margin-top: 100px;
+  /* Отступ от фиксированного навбара */
 }
