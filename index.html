@@ -424,18 +424,30 @@
       </div>
       <!-- Правая часть: Форма -->
       <div class="application-right">
+        <!-- В разделе application-section замените существующую форму на эту: -->
         <div class="form-box" id="register">
           <h3>Оставьте заявку</h3>
-          <form class="contact-form">
-            <input type="text" name="name" placeholder="Ваше имя" required />
-            <input type="text" name="jewishName" placeholder="Еврейское имя" required />
-            <input type="tel" name="phone" placeholder="Телефон" required />
-            <input type="email" name="email" placeholder="Ваш email" required />
-            <label for="weddingDate">Дата хупы</label>
+          <form class="contact-form" id="contactForm" action="./send-email.php" method="POST">
+            <input type="text" name="name" placeholder="Имя Фамилия" required />
+            <input type="text" name="spouseName" placeholder="Имя Супруга" required />
+            <label for="weddingDate">Дата свадьбы или хупы</label>
             <input type="date" name="weddingDate" id="weddingDate" required />
-            <textarea name="message" placeholder="Ваше сообщение" rows="4" required></textarea>
+            <input type="tel" name="phone" placeholder="Телефон" required />
+            <input type="email" name="email" placeholder="Почта" required />
+            <textarea name="source" placeholder="Откуда вы о нас узнали?" rows="4" required></textarea>
             <button type="submit" class="btn">Отправить</button>
           </form>
+        </div>
+
+        <!-- Добавьте модальное окно успешной отправки перед закрывающим тегом body: -->
+        <div class="success-modal" id="successModal">
+          <div class="modal-overlay"></div>
+          <div class="modal-content success-content">
+            <div class="success-icon">✓</div>
+            <h3>Спасибо!</h3>
+            <p>С вами свяжемся в ближайшее время!</p>
+            <button class="btn" id="successClose">OK</button>
+          </div>
         </div>
       </div>
     </div>

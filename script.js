@@ -493,3 +493,91 @@ window.addEventListener("resize", handleNavbarScroll);
 
 // Инициализируем при загрузке
 document.addEventListener("DOMContentLoaded", handleNavbarScroll);
+// Добавьте этот код в конец файла script.js
+
+// Форма обратной связи
+const contactForm = document.getElementById('contactForm');
+const successModal = document.getElementById('successModal');
+const successClose = document.getElementById('successClose');
+
+// Функция для отправки формы через AJAX
+async function handleFormSubmit(event) {
+  event.preventDefault();
+
+  const formData = new FormData(contactForm);
+
+  try {
+    // Показываем индикатор загрузки
+    const submitBtn = contactForm.querySelector('button[type="submit"]');
+    const originalText = submitBtn.textContent;
+    submitBtn.textContent = 'Отправка...';
+    submitBtn.disabled = true;
+
+    // Отправляем данные через AJAX
+    const response = await fetch('send-email.php', {
+      method: 'POST',
+      body: formData
+    });
+
+    const result = await response.json();
+
+    if (result.success) {
+      // Показываем сообщение об успехе
+      showSuccessModal();
+      // Сбрасываем форму
+      contactForm.reset();
+    } else {
+      alert('Ошибка отправки: ' + result.message);
+    }
+
+    // Восстанавливаем кнопку
+    submitBtn.textContent = originalText;
+    submitBtn.disabled = false;
+
+  } catch (error) {
+    console.error('Ошибка отправки:', error);
+    alert('Произошла ошибка при отправке формы. Пожалуйста, попробуйте еще раз.');
+
+    // Восстанавливаем кнопку
+    const submitBtn = contactForm.querySelector('button[type="submit"]');
+    submitBtn.textContent = 'Отправить';
+    submitBtn.disabled = false;
+  }
+}
+
+// Функция показа модального окна успеха
+function showSuccessModal() {
+  successModal.classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+// Закрытие модального окна успеха
+function closeSuccessModal() {
+  successModal.classList.remove('active');
+  document.body.style.overflow = 'auto';
+}
+
+// Event listeners
+if (contactForm) {
+  contactForm.addEventListener('submit', handleFormSubmit);
+}
+
+if (successClose) {
+  successClose.addEventListener('click', closeSuccessModal);
+}
+
+// Закрытие по клику на overlay
+if (successModal) {
+  successModal.addEventListener('click', (e) => {
+    if (e.target === successModal || e.target.classList.contains('modal-overlay')) {
+      closeSuccessModal();
+    }
+  });
+}
+
+// Закрытие по Escape
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && successModal.classList.contains('active')) {
+    closeSuccessModal();
+  }
+});
