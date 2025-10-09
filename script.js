@@ -15,7 +15,7 @@ document.querySelectorAll(".nav-links a").forEach((link) => {
   });
 });
 
-// Team Slider
+// Team Slider - ИСПРАВЛЕННАЯ ВЕРСИЯ
 let currentTeamSlide = 0;
 const teamSlides = document.querySelectorAll(".team-slide");
 const teamDots = document.querySelectorAll(".team-dot");
@@ -24,17 +24,29 @@ const teamNextBtn = document.getElementById("teamNext");
 const totalTeamSlides = teamSlides.length;
 
 function showTeamSlide(index) {
-  // Убираем активный класс со всех слайдов
-  teamSlides.forEach((slide) => slide.classList.remove("active"));
+  // Скрываем все слайды
+  teamSlides.forEach((slide) => {
+    slide.style.display = "none";
+    slide.classList.remove("active");
+  });
+
+  // Убираем активный класс со всех точек
   teamDots.forEach((dot) => dot.classList.remove("active"));
 
   // Показываем текущий слайд
+  teamSlides[index].style.display = "block";
   teamSlides[index].classList.add("active");
-  teamDots[index].classList.add("active");
+
+  // Активируем соответствующую точку
+  if (teamDots[index]) {
+    teamDots[index].classList.add("active");
+  }
 
   // Обновляем состояние кнопок
-  teamPrevBtn.disabled = index === 0;
-  teamNextBtn.disabled = index === totalTeamSlides - 1;
+  if (teamPrevBtn && teamNextBtn) {
+    teamPrevBtn.disabled = index === 0;
+    teamNextBtn.disabled = index === totalTeamSlides - 1;
+  }
 }
 
 function nextTeamSlide() {
@@ -52,8 +64,12 @@ function prevTeamSlide() {
 }
 
 // Event listeners для кнопок навигации
-teamNextBtn.addEventListener("click", nextTeamSlide);
-teamPrevBtn.addEventListener("click", prevTeamSlide);
+if (teamNextBtn) {
+  teamNextBtn.addEventListener("click", nextTeamSlide);
+}
+if (teamPrevBtn) {
+  teamPrevBtn.addEventListener("click", prevTeamSlide);
+}
 
 // Event listeners для точек навигации
 teamDots.forEach((dot, index) => {
@@ -63,21 +79,92 @@ teamDots.forEach((dot, index) => {
   });
 });
 
-// Автоматическое переключение слайдов (опционально)
-let teamAutoSlide = setInterval(nextTeamSlide, 5000);
+// Mobile Stories Slider - ИСПРАВЛЕННАЯ ВЕРСИЯ
+let currentStoriesSlide = 0;
+const storiesSlides = document.querySelectorAll(".story-slide");
+const storiesDots = document.querySelectorAll(".stories-dot");
+const storiesPrevBtn = document.getElementById("storiesPrev");
+const storiesNextBtn = document.getElementById("storiesNext");
+const totalStoriesSlides = storiesSlides.length;
 
-// Останавливаем автопрокрутку при наведении
-const teamSlider = document.querySelector(".team-slider");
-teamSlider.addEventListener("mouseenter", () => {
-  clearInterval(teamAutoSlide);
+function showStoriesSlide(index) {
+  // Скрываем все слайды
+  storiesSlides.forEach((slide) => {
+    slide.style.display = "none";
+    slide.classList.remove("active");
+  });
+
+  // Убираем активный класс со всех точек
+  storiesDots.forEach((dot) => dot.classList.remove("active"));
+
+  // Показываем текущий слайд
+  storiesSlides[index].style.display = "block";
+  storiesSlides[index].classList.add("active");
+
+  // Активируем соответствующую точку
+  if (storiesDots[index]) {
+    storiesDots[index].classList.add("active");
+  }
+
+  // Обновляем состояние кнопок
+  if (storiesPrevBtn && storiesNextBtn) {
+    storiesPrevBtn.disabled = index === 0;
+    storiesNextBtn.disabled = index === totalStoriesSlides - 1;
+  }
+}
+
+function nextStoriesSlide() {
+  if (currentStoriesSlide < totalStoriesSlides - 1) {
+    currentStoriesSlide++;
+    showStoriesSlide(currentStoriesSlide);
+  }
+}
+
+function prevStoriesSlide() {
+  if (currentStoriesSlide > 0) {
+    currentStoriesSlide--;
+    showStoriesSlide(currentStoriesSlide);
+  }
+}
+
+// Event listeners для кнопок навигации сторис
+if (storiesNextBtn) {
+  storiesNextBtn.addEventListener("click", nextStoriesSlide);
+}
+if (storiesPrevBtn) {
+  storiesPrevBtn.addEventListener("click", prevStoriesSlide);
+}
+
+// Event listeners для точек навигации сторис
+storiesDots.forEach((dot, index) => {
+  dot.addEventListener("click", () => {
+    currentStoriesSlide = index;
+    showStoriesSlide(currentStoriesSlide);
+  });
 });
 
-teamSlider.addEventListener("mouseleave", () => {
-  teamAutoSlide = setInterval(nextTeamSlide, 5000);
-});
+// Инициализация всех слайдеров при загрузке
+document.addEventListener("DOMContentLoaded", function () {
+  // Инициализация слайдера команды
+  if (teamSlides.length > 0) {
+    teamSlides.forEach((slide, index) => {
+      if (index !== 0) {
+        slide.style.display = "none";
+      }
+    });
+    showTeamSlide(0);
+  }
 
-// Инициализация
-showTeamSlide(0);
+  // Инициализация слайдера мероприятий
+  if (storiesSlides.length > 0) {
+    storiesSlides.forEach((slide, index) => {
+      if (index !== 0) {
+        slide.style.display = "none";
+      }
+    });
+    showStoriesSlide(0);
+  }
+});
 
 // Слайдер секции "цели"
 document.querySelectorAll(".goal-thumb").forEach((thumb) => {
@@ -252,90 +339,6 @@ document.addEventListener("keydown", (e) => {
   }
 });
 
-// Мобильный слайдер для мероприятий (старая версия - теперь не используется)
-let currentEventIndex = 0;
-const eventsArray = Array.from(storyItems);
-
-function showEvent(index) {
-  eventsArray.forEach((item, i) => {
-    if (i === index) {
-      item.style.display = "block";
-    } else {
-      item.style.display = "none";
-    }
-  });
-}
-
-// Инициализация мобильного слайдера
-function initMobileSlider() {
-  if (window.innerWidth <= 768) {
-    // На мобильных устройствах используем новую версию сторис
-    // Старый слайдер больше не нужен
-    eventsArray.forEach((item) => {
-      item.style.display = "block";
-    });
-  } else {
-    // На десктопе показываем все элементы
-    eventsArray.forEach((item) => {
-      item.style.display = "block";
-    });
-  }
-}
-
-// Инициализация при загрузке и изменении размера окна
-window.addEventListener("load", initMobileSlider);
-window.addEventListener("resize", initMobileSlider);
-
-// Mobile Stories Slider
-let currentStoriesSlide = 0;
-const storiesSlides = document.querySelectorAll(".story-slide");
-const storiesDots = document.querySelectorAll(".stories-dot");
-const storiesPrevBtn = document.getElementById("storiesPrev");
-const storiesNextBtn = document.getElementById("storiesNext");
-const totalStoriesSlides = storiesSlides.length;
-
-function showStoriesSlide(index) {
-  // Убираем активный класс со всех слайдов
-  storiesSlides.forEach((slide) => slide.classList.remove("active"));
-  storiesDots.forEach((dot) => dot.classList.remove("active"));
-
-  // Показываем текущий слайд
-  storiesSlides[index].classList.add("active");
-  storiesDots[index].classList.add("active");
-
-  // Обновляем состояние кнопок
-  storiesPrevBtn.disabled = index === 0;
-  storiesNextBtn.disabled = index === totalStoriesSlides - 1;
-}
-
-function nextStoriesSlide() {
-  if (currentStoriesSlide < totalStoriesSlides - 1) {
-    currentStoriesSlide++;
-    showStoriesSlide(currentStoriesSlide);
-  }
-}
-
-function prevStoriesSlide() {
-  if (currentStoriesSlide > 0) {
-    currentStoriesSlide--;
-    showStoriesSlide(currentStoriesSlide);
-  }
-}
-
-// Event listeners для кнопок навигации сторис
-if (storiesNextBtn && storiesPrevBtn) {
-  storiesNextBtn.addEventListener("click", nextStoriesSlide);
-  storiesPrevBtn.addEventListener("click", prevStoriesSlide);
-}
-
-// Event listeners для точек навигации сторис
-storiesDots.forEach((dot, index) => {
-  dot.addEventListener("click", () => {
-    currentStoriesSlide = index;
-    showStoriesSlide(currentStoriesSlide);
-  });
-});
-
 // Свайп-жесты для мобильных сторис
 let startX = 0;
 let endX = 0;
@@ -366,10 +369,22 @@ function handleStoriesSwipe() {
   }
 }
 
-// Автоматическое переключение сторис (опционально)
+// Автоматическое переключение слайдов (опционально)
+let teamAutoSlide = setInterval(nextTeamSlide, 5000);
 let storiesAutoSlide = setInterval(nextStoriesSlide, 4000);
 
 // Останавливаем автопрокрутку при наведении
+const teamSlider = document.querySelector(".team-slider");
+if (teamSlider) {
+  teamSlider.addEventListener("mouseenter", () => {
+    clearInterval(teamAutoSlide);
+  });
+
+  teamSlider.addEventListener("mouseleave", () => {
+    teamAutoSlide = setInterval(nextTeamSlide, 5000);
+  });
+}
+
 const storiesContainer = document.querySelector(".stories-container");
 if (storiesContainer) {
   storiesContainer.addEventListener("mouseenter", () => {
@@ -379,11 +394,6 @@ if (storiesContainer) {
   storiesContainer.addEventListener("mouseleave", () => {
     storiesAutoSlide = setInterval(nextStoriesSlide, 4000);
   });
-}
-
-// Инициализация сторис
-if (storiesSlides.length > 0) {
-  showStoriesSlide(0);
 }
 
 // Scroll animations
@@ -469,6 +479,7 @@ storiesSlides.forEach((slide) => {
     }
   });
 });
+
 // Фиксированный навбар при прокрутке на мобильных
 function handleNavbarScroll() {
   const navbar = document.querySelector(".navbar");
@@ -493,7 +504,6 @@ window.addEventListener("resize", handleNavbarScroll);
 
 // Инициализируем при загрузке
 document.addEventListener("DOMContentLoaded", handleNavbarScroll);
-// Добавьте этот код в конец файла script.js
 
 // Форма обратной связи
 const contactForm = document.getElementById('contactForm');
