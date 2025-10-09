@@ -1918,6 +1918,7 @@ body.navbar-fixed {
   /* Убеждаемся, что навбар поверх всего */
   .navbar.scrolled {
     z-index: 1000;
+    opacity: 0.8;
   }
 }
 
