@@ -369,33 +369,6 @@ function handleStoriesSwipe() {
   }
 }
 
-// Автоматическое переключение слайдов (опционально)
-let teamAutoSlide = setInterval(nextTeamSlide, 5000);
-let storiesAutoSlide = setInterval(nextStoriesSlide, 4000);
-
-// Останавливаем автопрокрутку при наведении
-const teamSlider = document.querySelector(".team-slider");
-if (teamSlider) {
-  teamSlider.addEventListener("mouseenter", () => {
-    clearInterval(teamAutoSlide);
-  });
-
-  teamSlider.addEventListener("mouseleave", () => {
-    teamAutoSlide = setInterval(nextTeamSlide, 5000);
-  });
-}
-
-const storiesContainer = document.querySelector(".stories-container");
-if (storiesContainer) {
-  storiesContainer.addEventListener("mouseenter", () => {
-    clearInterval(storiesAutoSlide);
-  });
-
-  storiesContainer.addEventListener("mouseleave", () => {
-    storiesAutoSlide = setInterval(nextStoriesSlide, 4000);
-  });
-}
-
 // Scroll animations
 function initScrollAnimations() {
   const observerOptions = {
