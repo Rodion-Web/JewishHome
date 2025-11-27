@@ -6,7 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Jewish Home</title>
   <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="goal-section-modern.css" />
   <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;600&display=swap" rel="stylesheet" />
 </head>
 
@@ -40,7 +39,6 @@
       </div>
     </div>
   </header>
-  <!-- Первый блок: фото слева -->
   <section id="about" class="goal-section-modern">
     <div class="goal-container">
       <div class="goal-images slider-wrapper">
@@ -66,7 +64,6 @@
       </div>
     </div>
   </section>
-  <!-- Второй блок: текст слева -->
   <section class="goal-section-alt">
     <div class="goal-alt-container">
       <div class="goal-alt-text">
@@ -92,8 +89,7 @@
       </div>
     </div>
   </section>
-  <!-- Третий блок: текст слева -->
-  <section class="goal-section-modern" style="background-color: #DB9C7D;">
+  <section class="goal-section-modern goal-section-rose">
     <div class="goal-container">
       <div class="goal-images slider-wrapper">
         <div class="slider-main">
@@ -208,12 +204,10 @@
     </div>
   </section>
 
-  <!-- Секция мероприятий в формате сторис -->
   <section class="events-stories-section" id="events">
     <div class="events-container">
       <h2 class="events-title">Наши мероприятия</h2>
 
-      <!-- Десктопная версия -->
       <div class="events-stories desktop-version">
         <div class="story-item" data-event="1">
           <div class="story-poster">
@@ -262,7 +256,6 @@
         </div>
       </div>
 
-      <!-- Мобильная версия - сторис слайдер -->
       <div class="events-stories-mobile mobile-version">
         <div class="stories-container">
           <div class="story-slide active" data-event="1">
@@ -351,7 +344,6 @@
           </div>
         </div>
 
-        <!-- Навигация для мобильных сторис -->
         <div class="stories-navigation">
           <button class="stories-nav-btn stories-prev" id="storiesPrev">‹</button>
           <div class="stories-dots">
@@ -367,7 +359,6 @@
     </div>
   </section>
 
-  <!-- Модальное окно для мероприятия -->
   <div class="event-modal" id="eventModal">
     <div class="modal-overlay"></div>
     <div class="modal-content">
@@ -405,10 +396,8 @@
 
   <section class="application-section">
     <div class="application-wrapper">
-      <!-- Левая часть: Мероприятия -->
       <div class="application-left">
         <h2>Наши мероприятия</h2>
-        <!-- <p>Мы регулярно проводим лекции, встречи, праздники и мастер-классы для всей семьи.</p> -->
         <div class="video-wrapper">
           <video controls width="100%" poster="img/video-poster.png">
             <source src="./video/event1.mp4" type="video/mp4" />
@@ -420,9 +409,7 @@
           </video>
         </div>
       </div>
-      <!-- Правая часть: Форма -->
       <div class="application-right">
-        <!-- В разделе application-section замените существующую форму на эту: -->
         <div class="form-box" id="register">
           <h3>Оставьте заявку</h3>
           <form class="contact-form" id="contactForm" action="./send-email.php" method="POST">
@@ -436,8 +423,6 @@
             <button type="submit" class="btn">Отправить</button>
           </form>
         </div>
-
-        <!-- Добавьте модальное окно успешной отправки перед закрывающим тегом body: -->
         <div class="success-modal" id="successModal">
           <div class="modal-overlay"></div>
           <div class="modal-content success-content">
@@ -456,22 +441,12 @@
       <img src="./img/2.jpg" alt="Фото 2" />
       <img src="./img/3.jpg" alt="Фото 3" />
       <img src="./img/4.jpg" alt="Фото 4" />
-      <img src="./img/1.jpg" alt="Фото 1" />
-      <img src="./img/2.jpg" alt="Фото 2" />
-      <img src="./img/3.jpg" alt="Фото 3" />
-      <img src="./img/4.jpg" alt="Фото 4" />
       <img src="./img/5.jpg" alt="Фото 5" />
       <img src="./img/1.jpg" alt="Фото 1" />
       <img src="./img/2.jpg" alt="Фото 2" />
       <img src="./img/3.jpg" alt="Фото 3" />
       <img src="./img/4.jpg" alt="Фото 4" />
-      <img src="./img/1.jpg" alt="Фото 1" />
-      <img src="./img/2.jpg" alt="Фото 2" />
-      <img src="./img/3.jpg" alt="Фото 3" />
-      <img src="./img/4.jpg" alt="Фото 4" />
       <img src="./img/5.jpg" alt="Фото 5" />
-      <!-- Добавь больше фото по необходимости -->
-      <!-- Добавь больше фото по необходимости -->
     </div>
   </section>
   <footer id="contacts" class="footer">
@@ -484,6 +459,7 @@
         <div class="footer-socials">
           <a href="https://t.me/HabaitHayehudi" target="_blank" aria-label="Telegram">
             <img src="./img/telegram.png" alt="Telegram" />
+          </a>
 
         </div>
       </div>

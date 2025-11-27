@@ -28,6 +28,24 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         return htmlspecialchars(trim($value), ENT_QUOTES, 'UTF-8');
     }
 
+    $requiredEnv = [
+        'SMTP_HOST',
+        'SMTP_USERNAME',
+        'SMTP_PASSWORD',
+        'SMTP_SECURE',
+        'SMTP_PORT',
+        'SMTP_TO',
+        'SMTP_FROM_NAME'
+    ];
+
+    foreach ($requiredEnv as $var) {
+        if (!getenv($var)) {
+            http_response_code(500);
+            echo json_encode(['success' => false, 'message' => 'Сервис временно недоступен. Попробуйте позже.']);
+            exit;
+        }
+    }
+
     // Получаем данные из вашей формы
     $name = sanitize($_POST["name"] ?? '');
     $spouseName = sanitize($_POST["spouseName"] ?? '');
