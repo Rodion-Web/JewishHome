@@ -6,12 +6,8 @@
 
 body,
 html {
-  font-family: "Segoe UI", sans-serif;
-  height: 100%;
-}
-
-body {
   font-family: "Rubik", sans-serif;
+  height: 100%;
 }
 
 .hero {
@@ -202,6 +198,10 @@ body {
   background-color: #ffd2bb;
 }
 
+.goal-section-rose {
+  background-color: #db9c7d;
+}
+
 .goal-section-alt {
   background-color: #489bb7;
 }
@@ -388,7 +388,7 @@ body {
 }
 
 .video-wrapper {
-  width: 600px;
+  width: 100%;
 }
 
 .video-wrapper iframe,

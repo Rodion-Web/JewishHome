@@ -2,18 +2,20 @@
 const toggle = document.getElementById("menu-toggle");
 const navLinks = document.getElementById("nav-links");
 
-toggle.addEventListener("click", () => {
-  navLinks.classList.toggle("active");
-  toggle.classList.toggle("active");
-});
-
-// Закрытие меню при клике на ссылку
-document.querySelectorAll(".nav-links a").forEach((link) => {
-  link.addEventListener("click", () => {
-    navLinks.classList.remove("active");
-    toggle.classList.remove("active");
+if (toggle && navLinks) {
+  toggle.addEventListener("click", () => {
+    navLinks.classList.toggle("active");
+    toggle.classList.toggle("active");
   });
-});
+
+  // Закрытие меню при клике на ссылку
+  document.querySelectorAll(".nav-links a").forEach((link) => {
+    link.addEventListener("click", () => {
+      navLinks.classList.remove("active");
+      toggle.classList.remove("active");
+    });
+  });
+}
 
 // Team Slider - ИСПРАВЛЕННАЯ ВЕРСИЯ
 let currentTeamSlide = 0;
@@ -210,14 +212,19 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
     e.preventDefault();
     const targetId = this.getAttribute("href");
     if (targetId && targetId !== "#") {
-      document.querySelector(targetId).scrollIntoView({
-        behavior: "smooth",
-      });
+      const target = document.querySelector(targetId);
+      if (target) {
+        target.scrollIntoView({
+          behavior: "smooth",
+        });
+      }
     }
 
     // Закрываем меню на мобильных
-    navLinks.classList.remove("active");
-    toggle.classList.remove("active");
+    if (navLinks && toggle) {
+      navLinks.classList.remove("active");
+      toggle.classList.remove("active");
+    }
   });
 });
 
@@ -280,60 +287,80 @@ const eventsData = {
   },
 };
 
+function openEventModal(eventData) {
+  if (!eventData || !eventModal) return;
+
+  const titleEl = document.getElementById("modalTitle");
+  const dateEl = document.getElementById("modalDate");
+  const timeEl = document.getElementById("modalTime");
+  const locationEl = document.getElementById("modalLocation");
+  const priceEl = document.getElementById("modalPrice");
+  const descriptionEl = document.getElementById("modalDescription");
+  const gallery = document.getElementById("modalGallery");
+
+  if (
+    !titleEl ||
+    !dateEl ||
+    !timeEl ||
+    !locationEl ||
+    !priceEl ||
+    !descriptionEl ||
+    !gallery
+  ) {
+    return;
+  }
+
+  titleEl.textContent = eventData.title;
+  dateEl.textContent = eventData.date;
+  timeEl.textContent = eventData.time;
+  locationEl.textContent = eventData.location;
+  priceEl.textContent = eventData.price;
+  descriptionEl.textContent = eventData.description;
+
+  gallery.innerHTML = "";
+  eventData.images.forEach((imgSrc) => {
+    const img = document.createElement("img");
+    img.src = imgSrc;
+    img.alt = eventData.title;
+    img.addEventListener("click", () => {
+      window.open(imgSrc, "_blank");
+    });
+    gallery.appendChild(img);
+  });
+
+  eventModal.classList.add("active");
+  document.body.style.overflow = "hidden";
+}
+
 // Открытие модального окна
 storyItems.forEach((item) => {
   item.addEventListener("click", () => {
     const eventId = item.getAttribute("data-event");
-    const eventData = eventsData[eventId];
-
-    if (eventData) {
-      // Заполняем модальное окно данными
-      document.getElementById("modalTitle").textContent = eventData.title;
-      document.getElementById("modalDate").textContent = eventData.date;
-      document.getElementById("modalTime").textContent = eventData.time;
-      document.getElementById("modalLocation").textContent = eventData.location;
-      document.getElementById("modalPrice").textContent = eventData.price;
-      document.getElementById("modalDescription").textContent =
-        eventData.description;
-
-      // Заполняем галерею
-      const gallery = document.getElementById("modalGallery");
-      gallery.innerHTML = "";
-      eventData.images.forEach((imgSrc) => {
-        const img = document.createElement("img");
-        img.src = imgSrc;
-        img.alt = eventData.title;
-        img.addEventListener("click", () => {
-          // Открытие изображения в полном размере
-          window.open(imgSrc, "_blank");
-        });
-        gallery.appendChild(img);
-      });
-
-      // Показываем модальное окно
-      eventModal.classList.add("active");
-      document.body.style.overflow = "hidden";
-    }
+    openEventModal(eventsData[eventId]);
   });
 });
 
 // Закрытие модального окна
-modalClose.addEventListener("click", () => {
-  eventModal.classList.remove("active");
-  document.body.style.overflow = "auto";
-});
-
-// Закрытие по клику на overlay
-eventModal.addEventListener("click", (e) => {
-  if (e.target === eventModal || e.target.classList.contains("modal-overlay")) {
+if (modalClose && eventModal) {
+  modalClose.addEventListener("click", () => {
     eventModal.classList.remove("active");
     document.body.style.overflow = "auto";
-  }
-});
+  });
+}
+
+// Закрытие по клику на overlay
+if (eventModal) {
+  eventModal.addEventListener("click", (e) => {
+    if (e.target === eventModal || e.target.classList.contains("modal-overlay")) {
+      eventModal.classList.remove("active");
+      document.body.style.overflow = "auto";
+    }
+  });
+}
 
 // Закрытие по Escape
 document.addEventListener("keydown", (e) => {
-  if (e.key === "Escape" && eventModal.classList.contains("active")) {
+  if (e.key === "Escape" && eventModal && eventModal.classList.contains("active")) {
     eventModal.classList.remove("active");
     document.body.style.overflow = "auto";
   }
@@ -420,36 +447,7 @@ document.addEventListener("DOMContentLoaded", initScrollAnimations);
 storiesSlides.forEach((slide) => {
   slide.addEventListener("click", () => {
     const eventId = slide.getAttribute("data-event");
-    const eventData = eventsData[eventId];
-
-    if (eventData) {
-      // Заполняем модальное окно данными
-      document.getElementById("modalTitle").textContent = eventData.title;
-      document.getElementById("modalDate").textContent = eventData.date;
-      document.getElementById("modalTime").textContent = eventData.time;
-      document.getElementById("modalLocation").textContent = eventData.location;
-      document.getElementById("modalPrice").textContent = eventData.price;
-      document.getElementById("modalDescription").textContent =
-        eventData.description;
-
-      // Заполняем галерею
-      const gallery = document.getElementById("modalGallery");
-      gallery.innerHTML = "";
-      eventData.images.forEach((imgSrc) => {
-        const img = document.createElement("img");
-        img.src = imgSrc;
-        img.alt = eventData.title;
-        img.addEventListener("click", () => {
-          // Открытие изображения в полном размере
-          window.open(imgSrc, "_blank");
-        });
-        gallery.appendChild(img);
-      });
-
-      // Показываем модальное окно
-      eventModal.classList.add("active");
-      document.body.style.overflow = "hidden";
-    }
+    openEventModal(eventsData[eventId]);
   });
 });
 
@@ -460,6 +458,8 @@ function handleNavbarScroll() {
   const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
 
   // Проверяем мобильное устройство и прокрутку
+  if (!navbar) return;
+
   if (window.innerWidth <= 768 && scrollTop > 100) {
     navbar.classList.add("scrolled");
     body.classList.add("navbar-fixed");
@@ -502,6 +502,10 @@ async function handleFormSubmit(event) {
       body: formData
     });
 
+    if (!response.ok) {
+      throw new Error('Сервис недоступен, попробуйте позже.');
+    }
+
     const result = await response.json();
 
     if (result.success) {
@@ -528,17 +532,19 @@ async function handleFormSubmit(event) {
   }
 }
 
-// Функция показа модального окна успеха
-function showSuccessModal() {
-  successModal.classList.add('active');
-  document.body.style.overflow = 'hidden';
-}
+  // Функция показа модального окна успеха
+  function showSuccessModal() {
+    if (!successModal) return;
+    successModal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
 
-// Закрытие модального окна успеха
-function closeSuccessModal() {
-  successModal.classList.remove('active');
-  document.body.style.overflow = 'auto';
-}
+  // Закрытие модального окна успеха
+  function closeSuccessModal() {
+    if (!successModal) return;
+    successModal.classList.remove('active');
+    document.body.style.overflow = 'auto';
+  }
 
 // Event listeners
 if (contactForm) {
@@ -560,7 +566,7 @@ if (successModal) {
 
 // Закрытие по Escape
 document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape' && successModal.classList.contains('active')) {
+  if (e.key === 'Escape' && successModal && successModal.classList.contains('active')) {
     closeSuccessModal();
   }
 });
