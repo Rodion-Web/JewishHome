@@ -1,20 +1,25 @@
-// Бургер-меню
 const toggle = document.getElementById("menu-toggle");
 const navLinks = document.getElementById("nav-links");
+const navOverlay = document.getElementById("navOverlay");
 
-if (toggle && navLinks) {
-  toggle.addEventListener("click", () => {
-    navLinks.classList.toggle("active");
-    toggle.classList.toggle("active");
-  });
+function openMobileMenu() {
+  if (!toggle || !navLinks) return;
+  navLinks.classList.add("active");
+  toggle.classList.add("active");
+  document.body.classList.add("menu-open");
+  if (navOverlay) {
+    navOverlay.classList.add("active");
+  }
+}
 
-  // Закрытие меню при клике на ссылку
-  document.querySelectorAll(".nav-links a").forEach((link) => {
-    link.addEventListener("click", () => {
-      navLinks.classList.remove("active");
-      toggle.classList.remove("active");
-    });
-  });
+function closeMobileMenu() {
+  if (!toggle || !navLinks) return;
+  navLinks.classList.remove("active");
+  toggle.classList.remove("active");
+  document.body.classList.remove("menu-open");
+  if (navOverlay) {
+    navOverlay.classList.remove("active");
+  }
 }
 
 // Team Slider - ИСПРАВЛЕННАЯ ВЕРСИЯ
@@ -351,7 +356,10 @@ if (modalClose && eventModal) {
 // Закрытие по клику на overlay
 if (eventModal) {
   eventModal.addEventListener("click", (e) => {
-    if (e.target === eventModal || e.target.classList.contains("modal-overlay")) {
+    if (
+      e.target === eventModal ||
+      e.target.classList.contains("modal-overlay")
+    ) {
       eventModal.classList.remove("active");
       document.body.style.overflow = "auto";
     }
@@ -360,7 +368,11 @@ if (eventModal) {
 
 // Закрытие по Escape
 document.addEventListener("keydown", (e) => {
-  if (e.key === "Escape" && eventModal && eventModal.classList.contains("active")) {
+  if (
+    e.key === "Escape" &&
+    eventModal &&
+    eventModal.classList.contains("active")
+  ) {
     eventModal.classList.remove("active");
     document.body.style.overflow = "auto";
   }
@@ -479,9 +491,9 @@ window.addEventListener("resize", handleNavbarScroll);
 document.addEventListener("DOMContentLoaded", handleNavbarScroll);
 
 // Форма обратной связи
-const contactForm = document.getElementById('contactForm');
-const successModal = document.getElementById('successModal');
-const successClose = document.getElementById('successClose');
+const contactForm = document.getElementById("contactForm");
+const successModal = document.getElementById("successModal");
+const successClose = document.getElementById("successClose");
 
 // Функция для отправки формы через AJAX
 async function handleFormSubmit(event) {
@@ -493,17 +505,17 @@ async function handleFormSubmit(event) {
     // Показываем индикатор загрузки
     const submitBtn = contactForm.querySelector('button[type="submit"]');
     const originalText = submitBtn.textContent;
-    submitBtn.textContent = 'Отправка...';
+    submitBtn.textContent = "Отправка...";
     submitBtn.disabled = true;
 
     // Отправляем данные через AJAX
-    const response = await fetch('send-email.php', {
-      method: 'POST',
-      body: formData
+    const response = await fetch("send-email.php", {
+      method: "POST",
+      body: formData,
     });
 
     if (!response.ok) {
-      throw new Error('Сервис недоступен, попробуйте позже.');
+      throw new Error("Сервис недоступен, попробуйте позже.");
     }
 
     const result = await response.json();
@@ -514,59 +526,117 @@ async function handleFormSubmit(event) {
       // Сбрасываем форму
       contactForm.reset();
     } else {
-      alert('Ошибка отправки: ' + result.message);
+      alert("Ошибка отправки: " + result.message);
     }
 
     // Восстанавливаем кнопку
     submitBtn.textContent = originalText;
     submitBtn.disabled = false;
-
   } catch (error) {
-    console.error('Ошибка отправки:', error);
-    alert('Произошла ошибка при отправке формы. Пожалуйста, попробуйте еще раз.');
+    console.error("Ошибка отправки:", error);
+    alert(
+      "Произошла ошибка при отправке формы. Пожалуйста, попробуйте еще раз."
+    );
 
     // Восстанавливаем кнопку
     const submitBtn = contactForm.querySelector('button[type="submit"]');
-    submitBtn.textContent = 'Отправить';
+    submitBtn.textContent = "Отправить";
     submitBtn.disabled = false;
   }
 }
 
-  // Функция показа модального окна успеха
-  function showSuccessModal() {
-    if (!successModal) return;
-    successModal.classList.add('active');
-    document.body.style.overflow = 'hidden';
-  }
+// Функция показа модального окна успеха
+function showSuccessModal() {
+  if (!successModal) return;
+  successModal.classList.add("active");
+  document.body.style.overflow = "hidden";
+}
 
-  // Закрытие модального окна успеха
-  function closeSuccessModal() {
-    if (!successModal) return;
-    successModal.classList.remove('active');
-    document.body.style.overflow = 'auto';
-  }
+// Закрытие модального окна успеха
+function closeSuccessModal() {
+  if (!successModal) return;
+  successModal.classList.remove("active");
+  document.body.style.overflow = "auto";
+}
 
 // Event listeners
 if (contactForm) {
-  contactForm.addEventListener('submit', handleFormSubmit);
+  contactForm.addEventListener("submit", handleFormSubmit);
 }
 
 if (successClose) {
-  successClose.addEventListener('click', closeSuccessModal);
+  successClose.addEventListener("click", closeSuccessModal);
 }
 
 // Закрытие по клику на overlay
 if (successModal) {
-  successModal.addEventListener('click', (e) => {
-    if (e.target === successModal || e.target.classList.contains('modal-overlay')) {
+  successModal.addEventListener("click", (e) => {
+    if (
+      e.target === successModal ||
+      e.target.classList.contains("modal-overlay")
+    ) {
       closeSuccessModal();
     }
   });
 }
 
 // Закрытие по Escape
-document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape' && successModal && successModal.classList.contains('active')) {
+document.addEventListener("keydown", (e) => {
+  if (
+    e.key === "Escape" &&
+    successModal &&
+    successModal.classList.contains("active")
+  ) {
     closeSuccessModal();
   }
 });
+
+// АНИМАЦИЯ СЧЁТЧИКОВ В БЛОКЕ "СТАТИСТИКА"
+const statsSection = document.querySelector(".stats-section");
+const statCounters = document.querySelectorAll(".stat-counter");
+let statsAnimated = false;
+
+function animateCounter(counter) {
+  const target = parseInt(counter.getAttribute("data-target"), 10);
+  const duration = 1500; // ms
+  const startTime = performance.now();
+
+  function update(currentTime) {
+    const elapsed = currentTime - startTime;
+    const progress = Math.min(elapsed / duration, 1);
+    const value = Math.floor(target * progress);
+
+    // Простое форматирование тысяч через пробел
+    counter.textContent = value
+      .toString()
+      .replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+
+    if (progress < 1) {
+      requestAnimationFrame(update);
+    }
+  }
+
+  requestAnimationFrame(update);
+}
+
+function initStatsObserver() {
+  if (!statsSection || statCounters.length === 0) return;
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting && !statsAnimated) {
+          statsAnimated = true;
+          statCounters.forEach((counter) => animateCounter(counter));
+        }
+      });
+    },
+    {
+      threshold: 0.3,
+    }
+  );
+
+  observer.observe(statsSection);
+}
+
+document.addEventListener("DOMContentLoaded", initStatsObserver);
